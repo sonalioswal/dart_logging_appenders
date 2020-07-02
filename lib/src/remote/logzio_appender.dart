@@ -43,6 +43,7 @@ class LogzIoApiAppender extends BaseDioLogSender {
     
     final headers = {
       'Accept': 'application/json',
+      'Content-Type': 'application/json',
       'authKey': apiToken
     };
 
@@ -62,10 +63,7 @@ class LogzIoApiAppender extends BaseDioLogSender {
           data: body,
           cancelToken: cancelToken,
           options: Options(
-            headers: headers,
-            contentType: ContentType(
-                    ContentType.json.primaryType, ContentType.json.subType)
-                .value,
+            headers: headers
           ),
         )
         .then((val) => null);

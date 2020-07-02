@@ -43,8 +43,7 @@ class LogzIoApiAppender extends BaseDioLogSender {
     
     final headers = {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'authKey': 'Basic $base64.encode($jsonEncode({$apiToken}))'
+      'authKey': apiToken
     };
 
     final body = entries

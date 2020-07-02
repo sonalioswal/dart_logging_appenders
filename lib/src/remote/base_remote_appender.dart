@@ -49,7 +49,7 @@ abstract class BaseLogSender extends BaseLogAppender {
     if (_logEvents.length > bufferSize) {
       _triggerSendLogEvents();
     } else {
-      _timer = Timer(const Duration(seconds: 10), () {
+      _timer = Timer(const Duration(minutes: 1), () {
         _timer = null;
         _triggerSendLogEvents();
       });
@@ -153,7 +153,7 @@ class SimpleJobDef {
 }
 
 class SimpleJobQueue {
-  SimpleJobQueue({this.maxQueueSize = 100});
+  SimpleJobQueue({this.maxQueueSize = 50});
 
   final int maxQueueSize;
 
